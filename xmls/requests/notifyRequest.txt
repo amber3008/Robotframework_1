@@ -1,0 +1,22 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:nxen="http://omx.att.com/omx/nxenterprise">
+   <soapenv:Header/> 
+   <soapenv:Body> 
+      <nxen:notifyProjectRequest> 
+         <nxen:sourceSystem>ROME</nxen:sourceSystem> 
+         <!--ATTeBiz,SalesExpr,ROME--> 
+         <nxen:serviceNameList> 
+            <nxen:serviceName>{orderType}</nxen:serviceName>
+            <!--<nxen:serviceName>BVOIP</nxen:serviceName>-->
+            <!--<nxen:serviceName>{aType}</nxen:serviceName>-->
+         </nxen:serviceNameList> 
+         <nxen:sorId>{sorId}</nxen:sorId>
+         <nxen:ProjectIdList> 
+            <nxen:dborProjectId>{proId}</nxen:dborProjectId>
+         </nxen:ProjectIdList> 
+         <nxen:customerName>HALOISTCUSTOMER</nxen:customerName> 
+         <nxen:opportunityId>1-C2823484</nxen:opportunityId> 
+         <nxen:eventOperation>SORSubmitted</nxen:eventOperation> 
+         <nxen:SOREligibility>OMX</nxen:SOREligibility> 
+      </nxen:notifyProjectRequest> 
+   </soapenv:Body> 
+</soapenv:Envelope>

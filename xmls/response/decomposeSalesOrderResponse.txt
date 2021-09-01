@@ -1,0 +1,6 @@
+<S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <env:Header/>
+  <S:Body>
+    <ns2:decomposeSalesOrderRequestResponse xmlns:ns2="http://amdocs/oms/ws/v1"/>
+  </S:Body>
+</S:Envelope>

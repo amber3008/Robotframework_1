@@ -1,0 +1,6 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+  <env:Header/>
+  <env:Body>
+    <ns3:notifyProjectResponse xmlns="http://cio.att.com/commonheader/v3" xmlns:ns3="http://omx.att.com/omx/nxenterprise"/>
+  </env:Body>
+</env:Envelope>

@@ -1,0 +1,5 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <ns0:orderResponse xmlns:ns0="http://cio.att.com/order/management/model" xmlns:ns2="http://cio.att.com/ord/model" xmlns:ns1="http://cio.att.com/entity/model" xmlns:ns3="http://cio.att.com/req/model"/>
+  </soapenv:Body>
+</soapenv:Envelope>

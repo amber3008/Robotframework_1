@@ -1,0 +1,21 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+  <env:Header/>
+  <env:Body>
+    <ns0:decomposeSalesOrderRequest xmlns:ns0="http://amdocs/oms/ws/v1">
+      <decomposeSORRequest>
+        <CustomerID>590206355201</CustomerID>
+        <Context/>
+        <projectID>{$projId$}</projectID>
+        <SORID>{$sorId$}</SORID>
+        <StoreOnly>N</StoreOnly>
+        <WSHeader>
+          <WSContext>
+            <FromAppId>OMX</FromAppId>
+            <ToAppId>OCX</ToAppId>
+          </WSContext>
+          <WSResponseMessageExpiration>0</WSResponseMessageExpiration>
+        </WSHeader>
+      </decomposeSORRequest>
+    </ns0:decomposeSalesOrderRequest>
+  </env:Body>
+</env:Envelope>
