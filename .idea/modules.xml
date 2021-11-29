@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../HALO_GAMMA_PYTEST/.idea/HALO_GAMMA_PYTEST.iml" filepath="$PROJECT_DIR$/../HALO_GAMMA_PYTEST/.idea/HALO_GAMMA_PYTEST.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Halo-Gamma.iml" filepath="$PROJECT_DIR$/.idea/Halo-Gamma.iml" />
     </modules>
   </component>

@@ -76,3 +76,45 @@ class UpdateXml:
         # write to a file
         with open('C:/Users/amberb/PycharmProjects/Halo-Gamma/xmls/requests/MOR_SG_OLD.xml', "w") as write_file:
             write_file.write(contents)
+
+
+    def updateSubmitJson(self,b):
+        self.b=b
+
+        # read from a file
+
+        with open('C:/Users/amberb/PycharmProjects/Halo-Gamma/xmls/requests/SubmitOrderActionReq.txt', "rt") as read_file:
+            contents = read_file.read()
+            contents = contents.replace('{$orderId}',b)
+
+        # write to a file
+        with open('C:/Users/amberb/PycharmProjects/Halo-Gamma/xmls/requests/SubmitOrderActionReq.json', "w") as write_file:
+            write_file.write(contents)
+
+
+
+    def updateXmlUni(self,isAdx):
+        self.isAdx=isAdx
+
+
+       # if orderType is type:
+       #     id="1-ME"
+       # elif orderType is type2:
+       #     id="1-AVPN"
+       # else:
+       #     id="1-CPTM"
+
+
+        # read from a file
+
+        with open('C:/Users/amberb/PycharmProjects/Halo-Gamma/xmls/requests/CNOD_UNI_NS.txt', "rt") as read_file:
+            contents = read_file.read()
+            contents = contents.replace('{$Adx$}',"ADX")
+
+
+        # write to a file
+        with open('C:/Users/amberb/PycharmProjects/Halo-Gamma/xmls/requests/CNOD_UNI_NS.xml', "w") as write_file:
+            write_file.write(contents)
+
+
+        return a

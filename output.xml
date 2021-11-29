@@ -1,373 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.7.4 on win32)" generated="20210901 11:36:26.540" rpa="false" schemaversion="2">
-<suite id="s1" name="IST OldArch Creation MIS" source="C:\Users\amberb\PycharmProjects\Halo-Gamma\Test\IST_OldArch_Creation_MIS.robot">
-<test id="s1-t1" name="Push Notify Request">
-<kw name="Update Xml" library="UpdateXml">
-<var>${sorIds}</var>
+<robot generator="Robot 4.1 (Python 3.7.4 on win32)" generated="20211126 19:22:24.012" rpa="false" schemaversion="2">
+<suite id="s1" name="IST GAMMA UNI" source="C:\Users\amberb\PycharmProjects\Halo-Gamma\Test\IST_GAMMA_UNI.robot">
+<test id="s1-t1" name="Push CNOD Request">
+<kw name="Update Xml Uni" library="UpdateXml">
 <arg>${a}</arg>
-<msg timestamp="20210901 11:36:27.063" level="INFO">1-ME61974</msg>
-<msg timestamp="20210901 11:36:27.064" level="INFO">${sorIds} = ['1-ME61974', '2064']</msg>
-<status status="PASS" starttime="20210901 11:36:27.062" endtime="20210901 11:36:27.064"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${sorIds}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:36:27.064" endtime="20210901 11:36:27.065"/>
+<status status="PASS" starttime="20211126 19:22:24.896" endtime="20211126 19:22:24.900"/>
 </kw>
 <kw name="Create SOAP Client" library="SoapLibrary">
-<arg>http://newtt4a1.snt.bst.bls.com:9003/omxenterprise-client-inbound-ws-war/NxEnterpriseService.wsdl</arg>
+<arg>http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</arg>
 <doc>Loads a WSDL from the given URL and creates a Zeep client.
 List all Available operations/methods with INFO log level.</doc>
-<msg timestamp="20210901 11:36:28.613" level="INFO">Connected to: http://newtt4a1.snt.bst.bls.com:9003/omxenterprise-client-inbound-ws-war/NxEnterpriseService.wsdl</msg>
-<msg timestamp="20210901 11:36:28.613" level="INFO">Available operations: dict_keys(['notifyProject'])</msg>
-<status status="PASS" starttime="20210901 11:36:27.065" endtime="20210901 11:36:28.613"/>
+<msg timestamp="20211126 19:22:26.823" level="INFO">Connected to: http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</msg>
+<msg timestamp="20211126 19:22:26.823" level="INFO">Available operations: dict_keys(['cancelAndCloneProductOrder', 'createProductOrderForExistingProduct', 'createProductOrderForNewProduct', 'updateProductOrder'])</msg>
+<status status="PASS" starttime="20211126 19:22:24.901" endtime="20211126 19:22:26.823"/>
 </kw>
 <kw name="Call SOAP Method With XML" library="SoapLibrary">
 <var>${response}</var>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//requests//notifyRequest.xml</arg>
+<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//requests//CNOD_UNI_NS.xml</arg>
 <doc>Send an XML file as a request to the SOAP client. The path to the Request XML file is required as argument,
 the SOAP method is inside the XML file.</doc>
-<msg timestamp="20210901 11:36:29.009" level="INFO">${response} = &lt;Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x28dc216ccc8&gt;</msg>
-<status status="PASS" starttime="20210901 11:36:28.614" endtime="20210901 11:36:29.009"/>
+<msg timestamp="20211126 19:22:29.857" level="INFO">${response} = &lt;Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x20ea10d0f08&gt;</msg>
+<status status="PASS" starttime="20211126 19:22:26.823" endtime="20211126 19:22:29.857"/>
 </kw>
 <kw name="Save XML To File" library="SoapLibrary">
 <arg>${response}</arg>
 <arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response</arg>
-<arg>notifyResponse</arg>
+<arg>CNOD_UNI_NS_Response</arg>
 <doc>Save the webservice response as a XML file.</doc>
-<status status="PASS" starttime="20210901 11:36:29.010" endtime="20210901 11:36:29.011"/>
+<status status="PASS" starttime="20211126 19:22:29.858" endtime="20211126 19:22:29.860"/>
 </kw>
 <kw name="Copy File" library="OperatingSystem">
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//notifyResponse.xml</arg>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//notifyResponse.txt</arg>
+<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//CNOD_UNI_NS_Response.xml</arg>
+<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//CNOD_UNI_NS_Response.txt</arg>
 <doc>Copies the source file into the destination.</doc>
-<msg timestamp="20210901 11:36:29.025" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\notifyResponse.xml"&gt;C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\notifyResponse.xml&lt;/a&gt;' to '&lt;a href="file://C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\notifyResponse.txt"&gt;C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\notifyResponse.txt&lt;/a&gt;'.</msg>
-<status status="PASS" starttime="20210901 11:36:29.012" endtime="20210901 11:36:29.025"/>
+<msg timestamp="20211126 19:22:29.878" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\CNOD_UNI_NS_Response.xml"&gt;C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\CNOD_UNI_NS_Response.xml&lt;/a&gt;' to '&lt;a href="file://C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\CNOD_UNI_NS_Response.txt"&gt;C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\CNOD_UNI_NS_Response.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20211126 19:22:29.861" endtime="20211126 19:22:29.878"/>
 </kw>
-<status status="PASS" starttime="20210901 11:36:27.061" endtime="20210901 11:36:29.026"/>
+<status status="PASS" starttime="20211126 19:22:24.894" endtime="20211126 19:22:29.879"/>
 </test>
-<test id="s1-t2" name="Push Decompose Sales Order Request">
-<kw name="Get Sor Proj Id" library="UpdateXml">
-<var>${ids}</var>
-<msg timestamp="20210901 11:36:29.029" level="INFO">${ids} = ['1-ME61974', '2064']</msg>
-<status status="PASS" starttime="20210901 11:36:29.029" endtime="20210901 11:36:29.029"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${ids}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:36:29.030" endtime="20210901 11:36:29.030"/>
-</kw>
-<kw name="Push Decompose Xml" library="UpdateXml">
-<arg>${ids}</arg>
-<status status="PASS" starttime="20210901 11:36:29.031" endtime="20210901 11:36:29.033"/>
-</kw>
-<kw name="Create SOAP Client" library="SoapLibrary">
-<arg>http://zltv9972.vci.att.com:41200/NW-WEB_SERVICES/NotifyOCX?wsdl</arg>
-<doc>Loads a WSDL from the given URL and creates a Zeep client.
-List all Available operations/methods with INFO log level.</doc>
-<msg timestamp="20210901 11:36:30.333" level="INFO">Connected to: http://zltv9972.vci.att.com:41200/NW-WEB_SERVICES/NotifyOCX?wsdl</msg>
-<msg timestamp="20210901 11:36:30.333" level="INFO">Available operations: dict_keys(['decomposeSalesOrderRequest'])</msg>
-<status status="PASS" starttime="20210901 11:36:29.033" endtime="20210901 11:36:30.333"/>
-</kw>
-<kw name="Call SOAP Method With XML" library="SoapLibrary">
-<var>${response}</var>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//requests//decomposeSalesOrderRequest.xml</arg>
-<doc>Send an XML file as a request to the SOAP client. The path to the Request XML file is required as argument,
-the SOAP method is inside the XML file.</doc>
-<msg timestamp="20210901 11:36:30.705" level="INFO">${response} = &lt;Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x28dc2194248&gt;</msg>
-<status status="PASS" starttime="20210901 11:36:30.334" endtime="20210901 11:36:30.705"/>
-</kw>
-<kw name="Save XML To File" library="SoapLibrary">
-<arg>${response}</arg>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response</arg>
-<arg>decomposeSalesOrderResponse</arg>
-<doc>Save the webservice response as a XML file.</doc>
-<status status="PASS" starttime="20210901 11:36:30.705" endtime="20210901 11:36:30.706"/>
-</kw>
-<kw name="Copy File" library="OperatingSystem">
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//decomposeSalesOrderResponse.xml</arg>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//decomposeSalesOrderResponse.txt</arg>
-<doc>Copies the source file into the destination.</doc>
-<msg timestamp="20210901 11:36:30.718" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\decomposeSalesOrderResponse.xml"&gt;C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\decomposeSalesOrderResponse.xml&lt;/a&gt;' to '&lt;a href="file://C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\decomposeSalesOrderResponse.txt"&gt;C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\decomposeSalesOrderResponse.txt&lt;/a&gt;'.</msg>
-<status status="PASS" starttime="20210901 11:36:30.707" endtime="20210901 11:36:30.718"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>5 minutes</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210901 11:41:30.720" level="INFO">Slept 5 minutes</msg>
-<status status="PASS" starttime="20210901 11:36:30.719" endtime="20210901 11:41:30.720"/>
-</kw>
-<status status="PASS" starttime="20210901 11:36:29.028" endtime="20210901 11:41:30.721"/>
-</test>
-<test id="s1-t3" name="Push Manage Order Request for Service Group">
-<kw name="Get Sor Proj Id" library="UpdateXml">
-<var>${ids}</var>
-<msg timestamp="20210901 11:41:30.724" level="INFO">${ids} = ['1-ME61974', '2064']</msg>
-<status status="PASS" starttime="20210901 11:41:30.724" endtime="20210901 11:41:30.724"/>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${auth}</var>
-<arg>UAMS_USER=Asmsa1</arg>
-<arg>UAMS_PASS=Asmsa1</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20210901 11:41:30.725" level="INFO">${auth} = {'UAMS_USER': 'Asmsa1', 'UAMS_PASS': 'Asmsa1'}</msg>
-<status status="PASS" starttime="20210901 11:41:30.725" endtime="20210901 11:41:30.725"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${auth}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:41:30.726" endtime="20210901 11:41:30.727"/>
-</kw>
-<kw name="Create Session" library="RequestsLibrary">
-<arg>mysession</arg>
-<arg>${baseUrl}</arg>
-<arg>headers=${auth}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20210901 11:41:30.728" level="INFO">Creating Session using : alias=mysession, url=http://zltv9972.vci.att.com:41200, headers={'UAMS_USER': 'Asmsa1', 'UAMS_PASS': 'Asmsa1'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20210901 11:41:30.727" endtime="20210901 11:41:30.728"/>
-</kw>
-<kw name="Get From List" library="Collections">
-<var>${sorid}</var>
-<arg>${ids}</arg>
-<arg>0</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<msg timestamp="20210901 11:41:30.729" level="INFO">${sorid} = 1-ME61974</msg>
-<status status="PASS" starttime="20210901 11:41:30.729" endtime="20210901 11:41:30.730"/>
-</kw>
-<kw name="Get From List" library="Collections">
-<var>${projId}</var>
-<arg>${ids}</arg>
-<arg>1</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<msg timestamp="20210901 11:41:30.731" level="INFO">${projId} = 2064</msg>
-<status status="PASS" starttime="20210901 11:41:30.730" endtime="20210901 11:41:30.731"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${sorid}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:41:30.732" endtime="20210901 11:41:30.732"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${url}</var>
-<arg>${urn}${sorid}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20210901 11:41:30.733" level="INFO">${url} = /rp-webapp-9/ordering/Orders?paramType=solutionid&amp;paramValue=1-ME61974</msg>
-<status status="PASS" starttime="20210901 11:41:30.733" endtime="20210901 11:41:30.733"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${url}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:41:30.734" endtime="20210901 11:41:30.734"/>
-</kw>
-<kw name="Get On Session" library="RequestsLibrary">
-<var>${response}</var>
-<arg>mysession</arg>
-<arg>${url}</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20210901 11:41:32.335" level="INFO">GET Request : url=http://zltv9972.vci.att.com:41200/rp-webapp-9/ordering/Orders?paramType=solutionid&amp;paramValue=1-ME61974 
- path_url=/rp-webapp-9/ordering/Orders?paramType=solutionid&amp;paramValue=1-ME61974 
- headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'UAMS_USER': 'Asmsa1', 'UAMS_PASS': 'Asmsa1'} 
- body=None 
- </msg>
-<msg timestamp="20210901 11:41:32.336" level="INFO">GET Response : url=http://zltv9972.vci.att.com:41200/rp-webapp-9/ordering/Orders?paramType=solutionid&amp;paramValue=1-ME61974 
- status=200, reason=OK 
- headers={'Date': 'Wed, 01 Sep 2021 06:11:31 GMT', 'Content-Length': '821', 'Content-Type': 'application/json', 'SET-COOKIE': '', 'uxfauthorization': '', 'X-XSS-Protection': '1; mode=block'} 
- body={"SearchOrderResponse":{"orderDataX9":[{"marketStrataX9":"2","referenceNumberX9":"187343851A","creationDateX9":"Tue Aug 31 23:07:02 PDT 2021","orderActionDataX9":[{"newOldArchIndX9":"Old","creationDateX9":"Tue Aug 31 23:07:02 PDT 2021","statusX9":"DE","orderVersionX9":"1","serviceTypeX9":"MISM","orderNumberX9":"187343852","orderActionIdX9":"187343852","parentRelationX9":"NA","ponrReachedX9":["NONE"],"orderActionTypeX9":"PR"},{"newOldArchIndX9":"Old","creationDateX9":"Tue Aug 31 23:07:03 PDT 2021","statusX9":"DE","orderVersionX9":"1","serviceTypeX9":"ACSM","orderNumberX9":"187343854","orderActionIdX9":"187343854","parentRelationX9":"NA","ponrReachedX9":["NONE"],"orderActionTypeX9":"PR"}],"sorIdX9":"1-ME61974","attUidX9":"MASS","typeOfSegmentX9":"2","statusX9":"SB","customerIdX9":"99","orderIdX9":"187343851"}]}} 
- </msg>
-<msg timestamp="20210901 11:41:32.336" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20210901 11:41:30.735" endtime="20210901 11:41:32.336"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:41:32.337" endtime="20210901 11:41:32.339"/>
-</kw>
-<kw name="To Json" library="RequestsLibrary">
-<var>${resp}</var>
-<arg>${response.content}</arg>
-<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
-<msg timestamp="20210901 11:41:32.340" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg timestamp="20210901 11:41:32.343" level="INFO">To JSON using : content={"SearchOrderResponse":{"orderDataX9":[{"marketStrataX9":"2","referenceNumberX9":"187343851A","creationDateX9":"Tue Aug 31 23:07:02 PDT 2021","orderActionDataX9":[{"newOldArchIndX9":"Old","creationDateX9":"Tue Aug 31 23:07:02 PDT 2021","statusX9":"DE","orderVersionX9":"1","serviceTypeX9":"MISM","orderNumberX9":"187343852","orderActionIdX9":"187343852","parentRelationX9":"NA","ponrReachedX9":["NONE"],"orderActionTypeX9":"PR"},{"newOldArchIndX9":"Old","creationDateX9":"Tue Aug 31 23:07:03 PDT 2021","statusX9":"DE","orderVersionX9":"1","serviceTypeX9":"ACSM","orderNumberX9":"187343854","orderActionIdX9":"187343854","parentRelationX9":"NA","ponrReachedX9":["NONE"],"orderActionTypeX9":"PR"}],"sorIdX9":"1-ME61974","attUidX9":"MASS","typeOfSegmentX9":"2","statusX9":"SB","customerIdX9":"99","orderIdX9":"187343851"}]}} </msg>
-<msg timestamp="20210901 11:41:32.343" level="INFO">To JSON using : pretty_print=False </msg>
-<msg timestamp="20210901 11:41:32.343" level="INFO">${resp} = {'SearchOrderResponse': {'orderDataX9': [{'marketStrataX9': '2', 'referenceNumberX9': '187343851A', 'creationDateX9': 'Tue Aug 31 23:07:02 PDT 2021', 'orderActionDataX9': [{'newOldArchIndX9': 'Old', '...</msg>
-<status status="PASS" starttime="20210901 11:41:32.340" endtime="20210901 11:41:32.343"/>
-</kw>
-<kw name="Get Value From Json" library="JSONLibrary">
-<var>${serviceType}</var>
-<arg>${resp}</arg>
-<arg>$.SearchOrderResponse.orderDataX9[0].orderActionDataX9..serviceTypeX9</arg>
-<doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20210901 11:41:32.380" level="INFO">${serviceType} = ['MISM', 'ACSM']</msg>
-<status status="PASS" starttime="20210901 11:41:32.344" endtime="20210901 11:41:32.380"/>
-</kw>
-<kw name="Get Value From Json" library="JSONLibrary">
-<var>${orderActionId}</var>
-<arg>${resp}</arg>
-<arg>$.SearchOrderResponse.orderDataX9[0].orderActionDataX9..orderActionIdX9</arg>
-<doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20210901 11:41:32.411" level="INFO">${orderActionId} = ['187343852', '187343854']</msg>
-<status status="PASS" starttime="20210901 11:41:32.381" endtime="20210901 11:41:32.412"/>
-</kw>
-<kw name="Get Value From Json" library="JSONLibrary">
-<var>${sgIds}</var>
-<arg>${resp}</arg>
-<arg>$.SearchOrderResponse.orderDataX9..orderIdX9</arg>
-<doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20210901 11:41:32.442" level="INFO">${sgIds} = ['187343851']</msg>
-<status status="PASS" starttime="20210901 11:41:32.412" endtime="20210901 11:41:32.442"/>
-</kw>
-<kw name="Get From List" library="Collections">
-<var>${sgId}</var>
-<arg>${sgIds}</arg>
-<arg>0</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<msg timestamp="20210901 11:41:32.443" level="INFO">${sgId} = 187343851</msg>
-<status status="PASS" starttime="20210901 11:41:32.443" endtime="20210901 11:41:32.443"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${i}</var>
-<arg>0</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20210901 11:41:32.444" level="INFO">${i} = 0</msg>
-<status status="PASS" starttime="20210901 11:41:32.444" endtime="20210901 11:41:32.444"/>
-</kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${len}</var>
-<arg>${serviceType}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20210901 11:41:32.445" level="INFO">Length is 2</msg>
-<msg timestamp="20210901 11:41:32.445" level="INFO">${len} = 2</msg>
-<status status="PASS" starttime="20210901 11:41:32.444" endtime="20210901 11:41:32.445"/>
-</kw>
-<kw name="Remove From Dictionary" library="Collections">
-<arg>${orders}</arg>
-<arg>a</arg>
-<doc>Removes the given ``keys`` from the ``dictionary``.</doc>
-<msg timestamp="20210901 11:41:32.446" level="INFO">Removed item with key 'a' and value 'b'.</msg>
-<status status="PASS" starttime="20210901 11:41:32.446" endtime="20210901 11:41:32.446"/>
-</kw>
-<for flavor="IN RANGE">
-<var>${i}</var>
-<value>${len}</value>
-<iter>
-<var name="${i}">0</var>
-<kw name="Set To Dictionary" library="Collections">
-<arg>${orders}</arg>
-<arg>${serviceType[${i}]}</arg>
-<arg>${orderActionId[${i}]}</arg>
-<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
-<status status="PASS" starttime="20210901 11:41:32.447" endtime="20210901 11:41:32.449"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${i}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:41:32.449" endtime="20210901 11:41:32.449"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${orders}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:41:32.450" endtime="20210901 11:41:32.450"/>
-</kw>
-<status status="PASS" starttime="20210901 11:41:32.447" endtime="20210901 11:41:32.450"/>
-</iter>
-<iter>
-<var name="${i}">1</var>
-<kw name="Set To Dictionary" library="Collections">
-<arg>${orders}</arg>
-<arg>${serviceType[${i}]}</arg>
-<arg>${orderActionId[${i}]}</arg>
-<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
-<status status="PASS" starttime="20210901 11:41:32.451" endtime="20210901 11:41:32.452"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${i}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:41:32.453" endtime="20210901 11:41:32.453"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${orders}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:41:32.453" endtime="20210901 11:41:32.454"/>
-</kw>
-<status status="PASS" starttime="20210901 11:41:32.450" endtime="20210901 11:41:32.454"/>
-</iter>
-<status status="PASS" starttime="20210901 11:41:32.446" endtime="20210901 11:41:32.454"/>
-</for>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${orders}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20210901 11:41:32.455" endtime="20210901 11:41:32.455"/>
-</kw>
-<kw name="Get From Dictionary" library="Collections">
-<var>${acsm_ordrId}</var>
-<arg>${orders}</arg>
-<arg>ACSM</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<msg timestamp="20210901 11:41:32.457" level="INFO">${acsm_ordrId} = 187343854</msg>
-<status status="PASS" starttime="20210901 11:41:32.456" endtime="20210901 11:41:32.457"/>
-</kw>
-<kw name="Get From Dictionary" library="Collections">
-<var>${mis_ordrId}</var>
-<arg>${orders}</arg>
-<arg>MISM</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<msg timestamp="20210901 11:41:32.459" level="INFO">${mis_ordrId} = 187343852</msg>
-<status status="PASS" starttime="20210901 11:41:32.458" endtime="20210901 11:41:32.459"/>
-</kw>
-<kw name="Update Mor Sg" library="UpdateXml">
-<arg>${acsm_ordrId}</arg>
-<arg>${mis_ordrId}</arg>
-<arg>${sorid}</arg>
-<arg>${projId}</arg>
-<arg>${sgId}</arg>
-<status status="PASS" starttime="20210901 11:41:32.459" endtime="20210901 11:41:32.462"/>
-</kw>
-<kw name="Create SOAP Client" library="SoapLibrary">
-<arg>http://atht4a1.snt.bst.bls.com:8702/omxif-client-inbound-ws-war/ManageOrderService.wsdl</arg>
-<doc>Loads a WSDL from the given URL and creates a Zeep client.
-List all Available operations/methods with INFO log level.</doc>
-<msg timestamp="20210901 11:41:34.940" level="INFO">Connected to: http://atht4a1.snt.bst.bls.com:8702/omxif-client-inbound-ws-war/ManageOrderService.wsdl</msg>
-<msg timestamp="20210901 11:41:34.940" level="INFO">Available operations: dict_keys(['manageOrder', 'notifyOrder', 'orderPoNRQuery'])</msg>
-<status status="PASS" starttime="20210901 11:41:32.464" endtime="20210901 11:41:34.940"/>
-</kw>
-<kw name="Call SOAP Method With XML" library="SoapLibrary">
-<var>${response}</var>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//requests//MOR_SG_OLD.xml</arg>
-<doc>Send an XML file as a request to the SOAP client. The path to the Request XML file is required as argument,
-the SOAP method is inside the XML file.</doc>
-<msg timestamp="20210901 11:41:35.497" level="INFO">${response} = &lt;Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x28dc21d9cc8&gt;</msg>
-<status status="PASS" starttime="20210901 11:41:34.941" endtime="20210901 11:41:35.498"/>
-</kw>
-<kw name="Save XML To File" library="SoapLibrary">
-<arg>${response}</arg>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response</arg>
-<arg>MOR_SG_OLD_Response</arg>
-<doc>Save the webservice response as a XML file.</doc>
-<status status="PASS" starttime="20210901 11:41:35.498" endtime="20210901 11:41:35.500"/>
-</kw>
-<kw name="Copy File" library="OperatingSystem">
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//MOR_SG_OLD_Response.xml</arg>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//MOR_SG_OLD_Response.txt</arg>
-<doc>Copies the source file into the destination.</doc>
-<msg timestamp="20210901 11:41:35.514" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\MOR_SG_OLD_Response.xml"&gt;C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\MOR_SG_OLD_Response.xml&lt;/a&gt;' to '&lt;a href="file://C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\MOR_SG_OLD_Response.txt"&gt;C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\MOR_SG_OLD_Response.txt&lt;/a&gt;'.</msg>
-<status status="PASS" starttime="20210901 11:41:35.500" endtime="20210901 11:41:35.515"/>
-</kw>
-<status status="PASS" starttime="20210901 11:41:30.723" endtime="20210901 11:41:35.516"/>
-</test>
-<doc>To create Old Arch Orders.</doc>
-<status status="PASS" starttime="20210901 11:36:26.543" endtime="20210901 11:41:35.518"/>
+<doc>To create GAMMA UNI Orders.</doc>
+<status status="PASS" starttime="20211126 19:22:24.016" endtime="20211126 19:22:29.881"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="IST OldArch Creation MIS">IST OldArch Creation MIS</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="IST GAMMA UNI">IST GAMMA UNI</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20210901 11:41:32.340" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>

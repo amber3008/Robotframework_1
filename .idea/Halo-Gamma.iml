@@ -11,5 +11,6 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (Halo-Gamma)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="HALO_GAMMA_PYTEST" />
   </component>
 </module>
