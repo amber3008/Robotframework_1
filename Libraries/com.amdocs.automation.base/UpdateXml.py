@@ -5,6 +5,8 @@ import xml.etree.ElementTree as ET
 
 ran=""
 a=[]
+uni=[]
+
 
 class UpdateXml:
     def updateXml(self,orderType):
@@ -184,7 +186,9 @@ class UpdateXml:
             write_file.write(contents)
 
         logger.info("output: ")
-
+        uni.append(sr1)
+        uni.append(sr2)
+        return uni
 
 
 #obj=UpdateXml()
