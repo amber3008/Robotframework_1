@@ -9,9 +9,9 @@
             <!--<nxen:serviceName>BVOIP</nxen:serviceName>-->
             <!--<nxen:serviceName>AVPN</nxen:serviceName>-->
          </nxen:serviceNameList> 
-         <nxen:sorId>1-ME59313</nxen:sorId>
+         <nxen:sorId>1-ME31633</nxen:sorId>
          <nxen:ProjectIdList> 
-            <nxen:dborProjectId>71130</nxen:dborProjectId>
+            <nxen:dborProjectId>22322</nxen:dborProjectId>
          </nxen:ProjectIdList> 
          <nxen:customerName>HALOISTCUSTOMER</nxen:customerName> 
          <nxen:opportunityId>1-C2823484</nxen:opportunityId> 

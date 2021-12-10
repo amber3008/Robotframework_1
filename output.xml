@@ -1,54 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.7.4 on win32)" generated="20211126 19:22:24.012" rpa="false" schemaversion="2">
-<suite id="s1" name="IST GAMMA UNI" source="C:\Users\amberb\PycharmProjects\Halo-Gamma\Test\IST_GAMMA_UNI.robot">
-<test id="s1-t1" name="Push CNOD Request">
+<robot generator="Robot 4.1.2 (Python 3.9.5 on win32)" generated="20211210 14:26:30.653" rpa="false" schemaversion="2">
+<suite id="s1" name="IST GAMMA PTP" source="C:\Users\shivamte\PycharmProjects\robotframeworkautomation\Test\IST_GAMMA_PTP.robot">
+<test id="s1-t1" name="Push UNI CNOD Request TC1">
 <kw name="Update Xml Uni" library="UpdateXml">
-<arg>${a}</arg>
-<status status="PASS" starttime="20211126 19:22:24.896" endtime="20211126 19:22:24.900"/>
+<arg>${isPmtu}</arg>
+<arg>${isAdx}</arg>
+<arg>${stateRegion1}</arg>
+<arg>${stateRegion2}</arg>
+<status status="PASS" starttime="20211210 14:26:31.141" endtime="20211210 14:26:31.150"/>
 </kw>
 <kw name="Create SOAP Client" library="SoapLibrary">
 <arg>http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</arg>
 <doc>Loads a WSDL from the given URL and creates a Zeep client.
 List all Available operations/methods with INFO log level.</doc>
-<msg timestamp="20211126 19:22:26.823" level="INFO">Connected to: http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</msg>
-<msg timestamp="20211126 19:22:26.823" level="INFO">Available operations: dict_keys(['cancelAndCloneProductOrder', 'createProductOrderForExistingProduct', 'createProductOrderForNewProduct', 'updateProductOrder'])</msg>
-<status status="PASS" starttime="20211126 19:22:24.901" endtime="20211126 19:22:26.823"/>
+<msg timestamp="20211210 14:26:32.930" level="INFO">Connected to: http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</msg>
+<msg timestamp="20211210 14:26:32.930" level="INFO">Available operations: dict_keys(['createProductOrderForNewProduct', 'cancelAndCloneProductOrder', 'createProductOrderForExistingProduct', 'updateProductOrder'])</msg>
+<status status="PASS" starttime="20211210 14:26:31.151" endtime="20211210 14:26:32.930"/>
 </kw>
 <kw name="Call SOAP Method With XML" library="SoapLibrary">
 <var>${response}</var>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//requests//CNOD_UNI_NS.xml</arg>
+<arg>xmls//requests//CNOD_UNI_NS.xml</arg>
 <doc>Send an XML file as a request to the SOAP client. The path to the Request XML file is required as argument,
 the SOAP method is inside the XML file.</doc>
-<msg timestamp="20211126 19:22:29.857" level="INFO">${response} = &lt;Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x20ea10d0f08&gt;</msg>
-<status status="PASS" starttime="20211126 19:22:26.823" endtime="20211126 19:22:29.857"/>
+<msg timestamp="20211210 14:26:36.454" level="INFO" html="true">&lt;font size="3"&gt;&lt;b&gt;Response from webservice:&lt;/b&gt;&lt;/font&gt; </msg>
+<msg timestamp="20211210 14:26:36.454" level="INFO">&lt;S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+  &lt;env:Header/&gt;
+  &lt;S:Body&gt;
+    &lt;ns2:createProductOrderForNewProductResponse xmlns:ns2="http://CustomerOrderEstablishment.ocxGenericServices.services.amdocs.com"&gt;
+      &lt;CreateProductOrderForNewProductResponse&gt;
+        &lt;productOrderResponse&gt;
+          &lt;productOrderId&gt;202132010A&lt;/productOrderId&gt;
+          &lt;productOrderStatus&gt;SB&lt;/productOrderStatus&gt;
+          &lt;productOffers&gt;
+            &lt;productOfferName&gt;Port&lt;/productOfferName&gt;
+            &lt;productOrderInfo&gt;
+              &lt;assignedProductId&gt;102241230&lt;/assignedProductId&gt;
+              &lt;orderActionType&gt;PR&lt;/orderActionType&gt;
+              &lt;productName&gt;PortMain&lt;/productName&gt;
+              &lt;productOrderItemId&gt;202132011_1&lt;/productOrderItemId&gt;
+              &lt;productOrderItemStatus&gt;DE&lt;/productOrderItemStatus&gt;
+              &lt;productServiceId&gt;AS.KRFN.107453..ATI&lt;/productServiceId&gt;
+              &lt;productVersion&gt;0&lt;/productVersion&gt;
+            &lt;/productOrderInfo&gt;
+          &lt;/productOffers&gt;
+          &lt;productOffers&gt;
+            &lt;productOfferName&gt;Port&lt;/productOfferName&gt;
+            &lt;productOrderInfo&gt;
+              &lt;assignedProductId&gt;102241238&lt;/assignedProductId&gt;
+              &lt;orderActionType&gt;PR&lt;/orderActionType&gt;
+              &lt;productName&gt;PortMain&lt;/productName&gt;
+              &lt;productOrderItemId&gt;202132013_1&lt;/productOrderItemId&gt;
+              &lt;productOrderItemStatus&gt;DE&lt;/productOrderItemStatus&gt;
+              &lt;productServiceId&gt;AS/KRFN/103270/SW&lt;/productServiceId&gt;
+              &lt;productVersion&gt;0&lt;/productVersion&gt;
+            &lt;/productOrderInfo&gt;
+          &lt;/productOffers&gt;
+        &lt;/productOrderResponse&gt;
+      &lt;/CreateProductOrderForNewProductResponse&gt;
+    &lt;/ns2:createProductOrderForNewProductResponse&gt;
+  &lt;/S:Body&gt;
+&lt;/S:Envelope&gt;
+</msg>
+<msg timestamp="20211210 14:26:36.454" level="INFO">${response} = &lt;Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x213423a0800&gt;</msg>
+<status status="PASS" starttime="20211210 14:26:32.930" endtime="20211210 14:26:36.454"/>
 </kw>
 <kw name="Save XML To File" library="SoapLibrary">
 <arg>${response}</arg>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response</arg>
+<arg>xmls//response</arg>
 <arg>CNOD_UNI_NS_Response</arg>
 <doc>Save the webservice response as a XML file.</doc>
-<status status="PASS" starttime="20211126 19:22:29.858" endtime="20211126 19:22:29.860"/>
+<status status="PASS" starttime="20211210 14:26:36.455" endtime="20211210 14:26:36.457"/>
 </kw>
 <kw name="Copy File" library="OperatingSystem">
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//CNOD_UNI_NS_Response.xml</arg>
-<arg>C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//CNOD_UNI_NS_Response.txt</arg>
+<arg>xmls//response//CNOD_UNI_NS_Response.xml</arg>
+<arg>xmls//response//CNOD_UNI_NS_Response.txt</arg>
 <doc>Copies the source file into the destination.</doc>
-<msg timestamp="20211126 19:22:29.878" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\CNOD_UNI_NS_Response.xml"&gt;C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\CNOD_UNI_NS_Response.xml&lt;/a&gt;' to '&lt;a href="file://C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\CNOD_UNI_NS_Response.txt"&gt;C:\Users\amberb\PycharmProjects\Halo-Gamma\xmls\response\CNOD_UNI_NS_Response.txt&lt;/a&gt;'.</msg>
-<status status="PASS" starttime="20211126 19:22:29.861" endtime="20211126 19:22:29.878"/>
+<msg timestamp="20211210 14:26:36.472" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_UNI_NS_Response.xml"&gt;C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_UNI_NS_Response.xml&lt;/a&gt;' to '&lt;a href="file://C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_UNI_NS_Response.txt"&gt;C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_UNI_NS_Response.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20211210 14:26:36.457" endtime="20211210 14:26:36.472"/>
 </kw>
-<status status="PASS" starttime="20211126 19:22:24.894" endtime="20211126 19:22:29.879"/>
+<status status="PASS" starttime="20211210 14:26:31.130" endtime="20211210 14:26:36.473"/>
 </test>
-<doc>To create GAMMA UNI Orders.</doc>
-<status status="PASS" starttime="20211126 19:22:24.016" endtime="20211126 19:22:29.881"/>
+<test id="s1-t2" name="Push PTP CNOD Request TC2">
+<kw name="Update Xml PTP" library="UpdateXml">
+<msg timestamp="20211210 14:26:36.480" level="INFO">output: </msg>
+<msg timestamp="20211210 14:26:36.480" level="INFO">AS.KRFN.107453..ATI   AS/KRFN/103270/SW</msg>
+<status status="PASS" starttime="20211210 14:26:36.476" endtime="20211210 14:26:36.480"/>
+</kw>
+<kw name="Create SOAP Client" library="SoapLibrary">
+<arg>http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</arg>
+<doc>Loads a WSDL from the given URL and creates a Zeep client.
+List all Available operations/methods with INFO log level.</doc>
+<msg timestamp="20211210 14:26:38.211" level="INFO">Connected to: http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</msg>
+<msg timestamp="20211210 14:26:38.211" level="INFO">Available operations: dict_keys(['createProductOrderForNewProduct', 'cancelAndCloneProductOrder', 'createProductOrderForExistingProduct', 'updateProductOrder'])</msg>
+<status status="PASS" starttime="20211210 14:26:36.481" endtime="20211210 14:26:38.211"/>
+</kw>
+<kw name="Call SOAP Method With XML" library="SoapLibrary">
+<var>${response}</var>
+<arg>xmls//requests//CNOD_PTP_NS.xml</arg>
+<doc>Send an XML file as a request to the SOAP client. The path to the Request XML file is required as argument,
+the SOAP method is inside the XML file.</doc>
+<msg timestamp="20211210 14:26:42.182" level="INFO" html="true">&lt;font size="3"&gt;&lt;b&gt;Response from webservice:&lt;/b&gt;&lt;/font&gt; </msg>
+<msg timestamp="20211210 14:26:42.182" level="INFO">&lt;S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+  &lt;env:Header/&gt;
+  &lt;S:Body&gt;
+    &lt;ns2:createProductOrderForNewProductResponse xmlns:ns2="http://CustomerOrderEstablishment.ocxGenericServices.services.amdocs.com"&gt;
+      &lt;CreateProductOrderForNewProductResponse&gt;
+        &lt;productOrderResponse&gt;
+          &lt;productOrderId&gt;202132015A&lt;/productOrderId&gt;
+          &lt;productOrderStatus&gt;SB&lt;/productOrderStatus&gt;
+          &lt;productOffers&gt;
+            &lt;productOfferName&gt;EVC - PTP&lt;/productOfferName&gt;
+            &lt;productOrderInfo&gt;
+              &lt;assignedProductId&gt;102241246&lt;/assignedProductId&gt;
+              &lt;orderActionType&gt;PR&lt;/orderActionType&gt;
+              &lt;productName&gt;EVCAccessMain&lt;/productName&gt;
+              &lt;productOrderItemId&gt;202132016_1&lt;/productOrderItemId&gt;
+              &lt;productOrderItemStatus&gt;DE&lt;/productOrderItemStatus&gt;
+              &lt;productServiceId&gt;AS/VLXP/103867/ATI_AS/KRFN/103270/SW&lt;/productServiceId&gt;
+              &lt;productVersion&gt;0&lt;/productVersion&gt;
+            &lt;/productOrderInfo&gt;
+            &lt;productOrderInfo&gt;
+              &lt;assignedProductId&gt;102241252&lt;/assignedProductId&gt;
+              &lt;orderActionType&gt;PR&lt;/orderActionType&gt;
+              &lt;productName&gt;EVCAccessMain&lt;/productName&gt;
+              &lt;productOrderItemId&gt;202132018_1&lt;/productOrderItemId&gt;
+              &lt;productOrderItemStatus&gt;DE&lt;/productOrderItemStatus&gt;
+              &lt;productServiceId&gt;AS/VLXP/103867/ATI_AS.KRFN.107453..ATI&lt;/productServiceId&gt;
+              &lt;productVersion&gt;0&lt;/productVersion&gt;
+            &lt;/productOrderInfo&gt;
+            &lt;productOrderInfo&gt;
+              &lt;assignedProductId&gt;102241258&lt;/assignedProductId&gt;
+              &lt;orderActionType&gt;PR&lt;/orderActionType&gt;
+              &lt;productName&gt;EVCMain&lt;/productName&gt;
+              &lt;productOrderItemId&gt;202132020_1&lt;/productOrderItemId&gt;
+              &lt;productOrderItemStatus&gt;DE&lt;/productOrderItemStatus&gt;
+              &lt;productServiceId&gt;AS/VLXP/103867/ATI&lt;/productServiceId&gt;
+              &lt;productVersion&gt;0&lt;/productVersion&gt;
+            &lt;/productOrderInfo&gt;
+          &lt;/productOffers&gt;
+        &lt;/productOrderResponse&gt;
+      &lt;/CreateProductOrderForNewProductResponse&gt;
+    &lt;/ns2:createProductOrderForNewProductResponse&gt;
+  &lt;/S:Body&gt;
+&lt;/S:Envelope&gt;
+</msg>
+<msg timestamp="20211210 14:26:42.182" level="INFO">${response} = &lt;Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x213423d2a00&gt;</msg>
+<status status="PASS" starttime="20211210 14:26:38.212" endtime="20211210 14:26:42.182"/>
+</kw>
+<kw name="Save XML To File" library="SoapLibrary">
+<arg>${response}</arg>
+<arg>xmls//response</arg>
+<arg>CNOD_PTP_NS_Response</arg>
+<doc>Save the webservice response as a XML file.</doc>
+<status status="PASS" starttime="20211210 14:26:42.183" endtime="20211210 14:26:42.184"/>
+</kw>
+<kw name="Copy File" library="OperatingSystem">
+<arg>xmls//response//CNOD_PTP_NS_Response.xml</arg>
+<arg>xmls//response//CNOD_PTP_NS_Response.txt</arg>
+<doc>Copies the source file into the destination.</doc>
+<msg timestamp="20211210 14:26:42.193" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_PTP_NS_Response.xml"&gt;C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_PTP_NS_Response.xml&lt;/a&gt;' to '&lt;a href="file://C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_PTP_NS_Response.txt"&gt;C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_PTP_NS_Response.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20211210 14:26:42.184" endtime="20211210 14:26:42.193"/>
+</kw>
+<status status="PASS" starttime="20211210 14:26:36.475" endtime="20211210 14:26:42.194"/>
+</test>
+<doc>To create GAMMA Orders.</doc>
+<status status="PASS" starttime="20211210 14:26:30.656" endtime="20211210 14:26:42.195"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="IST GAMMA UNI">IST GAMMA UNI</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="IST GAMMA PTP">IST GAMMA PTP</stat>
 </suite>
 </statistics>
 <errors>

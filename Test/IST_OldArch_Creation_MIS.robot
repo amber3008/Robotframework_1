@@ -6,7 +6,7 @@ Library           OperatingSystem
 Library           RequestsLibrary
 Library           JSONLibrary
 Library           XML
-Library           C://Users//amberb//PycharmProjects//Halo-Gamma//Libraries//com.amdocs.automation.base//UpdateXml.py
+Library           ${CURDIR}${/}..//Libraries//com.amdocs.automation.base//UpdateXml.py
 
 
 *** Variables ***
@@ -16,31 +16,31 @@ ${urn}      /rp-webapp-9/ordering/Orders?paramType=solutionid&paramValue=
 ${submitUrn}    /rp-webapp-9/ordering/SubmitOrderAction
 &{orders}       a=b
 &{statuses}     c=d
-${json_file}    C:\\Users\\amberb\\PycharmProjects\\Halo-Gamma\\xmls\\requests\\
+#${json_file}    xmls\\requests\\
 
 
 *** Test Cases ***
-Push Notify Request
+Push Notify Request TC1
     ${sorIds}=   updateXml    ${a}
     Log to console  ${sorIds}
     Create Soap Client    http://newtt4a1.snt.bst.bls.com:9003/omxenterprise-client-inbound-ws-war/NxEnterpriseService.wsdl
-    ${response}    Call SOAP Method With XML    C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//requests//notifyRequest.xml
-    Save XML To File    ${response}    C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response    notifyResponse
-    copy file   C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//notifyResponse.xml  C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//notifyResponse.txt
+    ${response}    Call SOAP Method With XML    xmls//requests//notifyRequest.xml
+    Save XML To File    ${response}    xmls//response    notifyResponse
+    copy file   xmls//response//notifyResponse.xml   xmls//response//notifyResponse.txt
 
 
-Push Decompose Sales Order Request
+Push Decompose Sales Order Request TC2
     ${ids}=     getSorProjId
     Log to console  ${ids}
     pushDecomposeXml    ${ids}
     Create Soap Client    http://zltv9972.vci.att.com:41200/NW-WEB_SERVICES/NotifyOCX?wsdl
-    ${response}    Call SOAP Method With XML    C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//requests//decomposeSalesOrderRequest.xml
-    Save XML To File    ${response}    C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response    decomposeSalesOrderResponse
-    copy file   C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//decomposeSalesOrderResponse.xml  C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//decomposeSalesOrderResponse.txt
+    ${response}    Call SOAP Method With XML     xmls//requests//decomposeSalesOrderRequest.xml
+    Save XML To File    ${response}     xmls//response    decomposeSalesOrderResponse
+    copy file    xmls//response//decomposeSalesOrderResponse.xml   xmls//response//decomposeSalesOrderResponse.txt
     Sleep   5 minutes
 
 
-Push Manage Order Request for Service Group
+Push Manage Order Request for Service Group TC3
     ${ids}=     getSorProjId
     ${auth}=    BuiltIn.Create Dictionary    UAMS_USER=Asmsa1      UAMS_PASS=Asmsa1
     Log to console  ${auth}
@@ -82,12 +82,12 @@ Push Manage Order Request for Service Group
     ${mis_ordrId} =	Get From Dictionary	${orders}	MISM
     updateMorSg     ${acsm_ordrId}  ${mis_ordrId}    ${sorid}   ${projId}   ${sgId}
     Create Soap Client       http://atht4a1.snt.bst.bls.com:8702/omxif-client-inbound-ws-war/ManageOrderService.wsdl
-    ${response}     Call SOAP Method With XML        C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//requests//MOR_SG_OLD.xml
-    Save XML To File     ${response}        C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response    MOR_SG_OLD_Response
-    copy file    C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//MOR_SG_OLD_Response.xml     C://Users//amberb//PycharmProjects//Halo-Gamma//xmls//response//MOR_SG_OLD_Response.txt
+    ${response}     Call SOAP Method With XML         xmls//requests//MOR_SG_OLD.xml
+    Save XML To File     ${response}         xmls//response    MOR_SG_OLD_Response
+    copy file     xmls//response//MOR_SG_OLD_Response.xml      xmls//response//MOR_SG_OLD_Response.txt
 
 
-Verify Order is submitted to OMX
+Verify Order is submitted to OMX TC4
     ${acsm_status} =	Get From Dictionary	${statuses}     ACSM
     ${mis_status} =	    Get From Dictionary	${statuses}     MISM
     Log To Console   ${acsm_status}
