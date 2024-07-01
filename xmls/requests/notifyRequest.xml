@@ -6,12 +6,12 @@
          <!--ATTeBiz,SalesExpr,ROME--> 
          <nxen:serviceNameList> 
             <nxen:serviceName>MIS</nxen:serviceName>
-            <!--<nxen:serviceName>BVOIP</nxen:serviceName>-->
+            <nxen:serviceName>BVOIP</nxen:serviceName>
             <!--<nxen:serviceName>AVPN</nxen:serviceName>-->
          </nxen:serviceNameList> 
-         <nxen:sorId>1-ME31633</nxen:sorId>
+         <nxen:sorId>1-DVB90514</nxen:sorId>
          <nxen:ProjectIdList> 
-            <nxen:dborProjectId>22322</nxen:dborProjectId>
+            <nxen:dborProjectId>DVB9767898</nxen:dborProjectId>
          </nxen:ProjectIdList> 
          <nxen:customerName>HALOISTCUSTOMER</nxen:customerName> 
          <nxen:opportunityId>1-C2823484</nxen:opportunityId> 

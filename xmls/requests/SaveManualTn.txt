@@ -1,0 +1,89 @@
+{
+  "TelephoneNumbersDetails": {
+    "requestIDX9": "{reqId}",
+    "telephoneNumbersX9": [
+      {
+        "virtualNumber": "false",
+        "quantity": null,
+        "reservationID": null,
+        "value": "{tn}",
+        "valueTo": "{tn}",
+        "origin": {
+          "value": null,
+          "code": "RE"
+        },
+        "status": {
+          "value": null,
+          "code": "RES"
+        },
+        "vanityType": {
+          "value": null,
+          "code": "REG"
+        },
+        "characteristics": [
+          {
+            "name": "LRN",
+            "characteristicDefinition": {
+              "code": "lRN"
+            },
+            "value": "8158606000"
+          },
+          {
+            "name": "LEC Switch Type",
+            "characteristicDefinition": {
+              "code": "lecSwitchType"
+            },
+            "value": "5ESS"
+          },
+          {
+            "name": "LEC Switch CLLI",
+            "characteristicDefinition": {
+              "code": "lecSwitchCLLI"
+            },
+            "value": "CHCGIL24DS0"
+          },
+          {
+            "name": "LNS Switch Type",
+            "characteristicDefinition": {
+              "code": "lnsSwitchType"
+            },
+            "value": "GSX"
+          },
+          {
+            "name": "LNS Switch CLLI",
+            "characteristicDefinition": {
+              "code": "lnsSwitchCLLI"
+            },
+            "value": "CHCGILCLGT5"
+          },
+          {
+            "name": "E911 type",
+            "characteristicDefinition": {
+              "code": "e911Type"
+            },
+            "value": "1"
+          },
+          {
+            "name": "TN Rate Center",
+            "characteristicDefinition": {
+              "code": "tnRateCenter"
+            },
+            "value": "CHICGOZN04"
+          },
+          {
+            "name": "Reserved TN Description",
+            "characteristicDefinition": {
+              "code": "reservedTnDescription"
+            }
+          },
+          {
+            "name": "Reserved TN Other Description",
+            "characteristicDefinition": {
+              "code": "reservedTnOtherDescription"
+            }
+          }
+        ]
+      }
+    ]
+ }
+}

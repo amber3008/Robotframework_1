@@ -1,0 +1,84 @@
+{
+  "SaveUserDefineRangesInProductServiceRestRequest": {
+    "orderNumberX9": "{orderId}",
+    "orderVersionX9": "1",
+    "rangesX9": [
+      {
+        "value": "{tn}",
+        "valueTo": "{tn}",
+        "charactersticGroups": [
+          {
+            "id": "42903",
+            "characteristics": [
+              {
+                "id": "isDirectoryListing",
+                "value": "N"
+              }
+            ]
+          },
+          {
+            "id": "7771",
+            "characteristics": [
+              {
+                "id": "interLATAPICFreezeIndicator",
+                "value": "true"
+              },
+              {
+                "id": "interLATAPIC",
+                "value": "0288"
+              },
+              {
+                "id": "cnamOption",
+                "value": "2"
+              },
+              {
+                "id": "cnam",
+                "value": "HALOISTCUSTOMER"
+              },
+              {
+                "id": "lidbOption",
+                "value": "4"
+              },
+              {
+                "id": "intraLATAPICFreezeIndicator",
+                "value": "true"
+              },
+              {
+                "id": "intraLATAPIC",
+                "value": "0288"
+              }
+            ]
+          },
+          {
+            "id": "7721",
+            "characteristics": [
+              {
+                "id": "e164CountryCode",
+                "value": "1"
+              },
+              {
+                "id": "gatewayCityCode",
+                "value": "898"
+              },
+              {
+                "id": "startExtensionRange",
+                "value": "{nxx}"
+              },
+              {
+                "id": "endExtensionRange",
+                "value": "{nxx}"
+              },
+              {
+                "id": "lengthOfPBXExtension",
+                "value": "10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "rangesForDeletionX9": [],
+    "requestIDX9": "{reqId}"
+  }
+}
+

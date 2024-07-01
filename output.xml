@@ -1,186 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.9.5 on win32)" generated="20211210 14:34:05.220" rpa="false" schemaversion="2">
-<suite id="s1" name="IST GAMMA PTP" source="C:\Users\shivamte\PycharmProjects\robotframeworkautomation\Test\IST_GAMMA_PTP.robot">
-<test id="s1-t1" name="Push UNI CNOD Request TC1">
-<kw name="Update Xml Uni" library="UpdateXml">
+<robot generator="Robot 7.0.1 (Python 3.9.13 on win32)" generated="2024-07-02T02:38:33.353333" rpa="false" schemaversion="5">
+<suite id="s1" name="IST GAMMA UNI" source="c:\Users\DELL\Downloads\Halo-Gamma\Test\IST_GAMMA_UNI.robot">
+<test id="s1-t1" name="Push UNI CNOD Request" line="23">
+<kw name="Update Xml Uni" owner="UpdateXml">
 <arg>${isPmtu}</arg>
 <arg>${isAdx}</arg>
 <arg>${stateRegion1}</arg>
 <arg>${stateRegion2}</arg>
-<status status="PASS" starttime="20211210 14:34:05.899" endtime="20211210 14:34:05.909"/>
+<status status="PASS" start="2024-07-02T02:38:33.873029" elapsed="0.019796"/>
 </kw>
-<kw name="Create SOAP Client" library="SoapLibrary">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${stateRegion1}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-07-02T02:38:33.893822" elapsed="0.001996"/>
+</kw>
+<kw name="Create SOAP Client" owner="SoapLibrary">
+<msg time="2024-07-02T02:38:34.352795" level="FAIL">ConnectionError: HTTPConnectionPool(host='zltv9973.vci.att.com', port=41400): Max retries exceeded with url: /ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001588EC96D30&gt;: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))</msg>
 <arg>http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</arg>
-<doc>Loads a WSDL from the given URL and creates a Zeep client.
+<doc>Loads a WSDL from the given ``url`` and creates a Zeep client.
 List all Available operations/methods with INFO log level.</doc>
-<msg timestamp="20211210 14:34:07.715" level="INFO">Connected to: http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</msg>
-<msg timestamp="20211210 14:34:07.715" level="INFO">Available operations: dict_keys(['createProductOrderForNewProduct', 'cancelAndCloneProductOrder', 'createProductOrderForExistingProduct', 'updateProductOrder'])</msg>
-<status status="PASS" starttime="20211210 14:34:05.910" endtime="20211210 14:34:07.715"/>
+<status status="FAIL" start="2024-07-02T02:38:33.897812" elapsed="0.535909">ConnectionError: HTTPConnectionPool(host='zltv9973.vci.att.com', port=41400): Max retries exceeded with url: /ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001588EC96D30&gt;: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))</status>
 </kw>
-<kw name="Call SOAP Method With XML" library="SoapLibrary">
+<kw name="Call SOAP Method With XML" owner="SoapLibrary">
 <var>${response}</var>
 <arg>xmls//requests//CNOD_UNI_NS.xml</arg>
 <doc>Send an XML file as a request to the SOAP client. The path to the Request XML file is required as argument,
 the SOAP method is inside the XML file.</doc>
-<msg timestamp="20211210 14:34:11.421" level="INFO" html="true">&lt;font size="3"&gt;&lt;b&gt;Response from webservice:&lt;/b&gt;&lt;/font&gt; </msg>
-<msg timestamp="20211210 14:34:11.421" level="INFO">&lt;S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"&gt;
-  &lt;env:Header/&gt;
-  &lt;S:Body&gt;
-    &lt;ns2:createProductOrderForNewProductResponse xmlns:ns2="http://CustomerOrderEstablishment.ocxGenericServices.services.amdocs.com"&gt;
-      &lt;CreateProductOrderForNewProductResponse&gt;
-        &lt;productOrderResponse&gt;
-          &lt;productOrderId&gt;202132022A&lt;/productOrderId&gt;
-          &lt;productOrderStatus&gt;SB&lt;/productOrderStatus&gt;
-          &lt;productOffers&gt;
-            &lt;productOfferName&gt;Port&lt;/productOfferName&gt;
-            &lt;productOrderInfo&gt;
-              &lt;assignedProductId&gt;102241269&lt;/assignedProductId&gt;
-              &lt;orderActionType&gt;PR&lt;/orderActionType&gt;
-              &lt;productName&gt;PortMain&lt;/productName&gt;
-              &lt;productOrderItemId&gt;202132025_1&lt;/productOrderItemId&gt;
-              &lt;productOrderItemStatus&gt;DE&lt;/productOrderItemStatus&gt;
-              &lt;productServiceId&gt;AS/KRFN/102511/SW&lt;/productServiceId&gt;
-              &lt;productVersion&gt;0&lt;/productVersion&gt;
-            &lt;/productOrderInfo&gt;
-          &lt;/productOffers&gt;
-          &lt;productOffers&gt;
-            &lt;productOfferName&gt;Port&lt;/productOfferName&gt;
-            &lt;productOrderInfo&gt;
-              &lt;assignedProductId&gt;102241261&lt;/assignedProductId&gt;
-              &lt;orderActionType&gt;PR&lt;/orderActionType&gt;
-              &lt;productName&gt;PortMain&lt;/productName&gt;
-              &lt;productOrderItemId&gt;202132023_1&lt;/productOrderItemId&gt;
-              &lt;productOrderItemStatus&gt;DE&lt;/productOrderItemStatus&gt;
-              &lt;productServiceId&gt;AS.KRFN.101256..ATI&lt;/productServiceId&gt;
-              &lt;productVersion&gt;0&lt;/productVersion&gt;
-            &lt;/productOrderInfo&gt;
-          &lt;/productOffers&gt;
-        &lt;/productOrderResponse&gt;
-      &lt;/CreateProductOrderForNewProductResponse&gt;
-    &lt;/ns2:createProductOrderForNewProductResponse&gt;
-  &lt;/S:Body&gt;
-&lt;/S:Envelope&gt;
-</msg>
-<msg timestamp="20211210 14:34:11.422" level="INFO">${response} = &lt;Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x275fd2ef980&gt;</msg>
-<status status="PASS" starttime="20211210 14:34:07.715" endtime="20211210 14:34:11.422"/>
+<status status="NOT RUN" start="2024-07-02T02:38:34.433721" elapsed="0.000000"/>
 </kw>
-<kw name="Save XML To File" library="SoapLibrary">
+<kw name="Save XML To File" owner="SoapLibrary">
 <arg>${response}</arg>
 <arg>xmls//response</arg>
 <arg>CNOD_UNI_NS_Response</arg>
-<doc>Save the webservice response as a XML file.</doc>
-<status status="PASS" starttime="20211210 14:34:11.422" endtime="20211210 14:34:11.423"/>
+<doc>Save the webservice response as an XML file.</doc>
+<status status="NOT RUN" start="2024-07-02T02:38:34.433721" elapsed="0.000000"/>
 </kw>
-<kw name="Copy File" library="OperatingSystem">
+<kw name="Copy File" owner="OperatingSystem">
 <arg>xmls//response//CNOD_UNI_NS_Response.xml</arg>
 <arg>xmls//response//CNOD_UNI_NS_Response.txt</arg>
 <doc>Copies the source file into the destination.</doc>
-<msg timestamp="20211210 14:34:11.436" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_UNI_NS_Response.xml"&gt;C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_UNI_NS_Response.xml&lt;/a&gt;' to '&lt;a href="file://C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_UNI_NS_Response.txt"&gt;C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_UNI_NS_Response.txt&lt;/a&gt;'.</msg>
-<status status="PASS" starttime="20211210 14:34:11.424" endtime="20211210 14:34:11.436"/>
+<status status="NOT RUN" start="2024-07-02T02:38:34.450637" elapsed="0.000000"/>
 </kw>
-<status status="PASS" starttime="20211210 14:34:05.888" endtime="20211210 14:34:11.436"/>
-</test>
-<test id="s1-t2" name="Push PTP CNOD Request TC2">
-<kw name="Update Xml PTP" library="UpdateXml">
-<var>${unis}</var>
-<msg timestamp="20211210 14:34:11.454" level="INFO">output: </msg>
-<msg timestamp="20211210 14:34:11.454" level="INFO">AS/KRFN/102511/SW   AS.KRFN.101256..ATI</msg>
-<msg timestamp="20211210 14:34:11.455" level="INFO">${unis} = ['AS/KRFN/102511/SW', 'AS.KRFN.101256..ATI']</msg>
-<status status="PASS" starttime="20211210 14:34:11.440" endtime="20211210 14:34:11.455"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${unis}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20211210 14:34:11.455" endtime="20211210 14:34:11.456"/>
-</kw>
-<kw name="Create SOAP Client" library="SoapLibrary">
-<arg>http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</arg>
-<doc>Loads a WSDL from the given URL and creates a Zeep client.
-List all Available operations/methods with INFO log level.</doc>
-<msg timestamp="20211210 14:34:13.182" level="INFO">Connected to: http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl</msg>
-<msg timestamp="20211210 14:34:13.183" level="INFO">Available operations: dict_keys(['createProductOrderForNewProduct', 'cancelAndCloneProductOrder', 'createProductOrderForExistingProduct', 'updateProductOrder'])</msg>
-<status status="PASS" starttime="20211210 14:34:11.457" endtime="20211210 14:34:13.183"/>
-</kw>
-<kw name="Call SOAP Method With XML" library="SoapLibrary">
-<var>${response}</var>
-<arg>xmls//requests//CNOD_PTP_NS.xml</arg>
-<doc>Send an XML file as a request to the SOAP client. The path to the Request XML file is required as argument,
-the SOAP method is inside the XML file.</doc>
-<msg timestamp="20211210 14:34:17.034" level="INFO" html="true">&lt;font size="3"&gt;&lt;b&gt;Response from webservice:&lt;/b&gt;&lt;/font&gt; </msg>
-<msg timestamp="20211210 14:34:17.034" level="INFO">&lt;S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"&gt;
-  &lt;env:Header/&gt;
-  &lt;S:Body&gt;
-    &lt;ns2:createProductOrderForNewProductResponse xmlns:ns2="http://CustomerOrderEstablishment.ocxGenericServices.services.amdocs.com"&gt;
-      &lt;CreateProductOrderForNewProductResponse&gt;
-        &lt;productOrderResponse&gt;
-          &lt;productOrderId&gt;202132027A&lt;/productOrderId&gt;
-          &lt;productOrderStatus&gt;SB&lt;/productOrderStatus&gt;
-          &lt;productOffers&gt;
-            &lt;productOfferName&gt;EVC - PTP&lt;/productOfferName&gt;
-            &lt;productOrderInfo&gt;
-              &lt;assignedProductId&gt;102241277&lt;/assignedProductId&gt;
-              &lt;orderActionType&gt;PR&lt;/orderActionType&gt;
-              &lt;productName&gt;EVCAccessMain&lt;/productName&gt;
-              &lt;productOrderItemId&gt;202132028_1&lt;/productOrderItemId&gt;
-              &lt;productOrderItemStatus&gt;DE&lt;/productOrderItemStatus&gt;
-              &lt;productServiceId&gt;AS/VLXP/101896/ATI_AS.KRFN.101256..ATI&lt;/productServiceId&gt;
-              &lt;productVersion&gt;0&lt;/productVersion&gt;
-            &lt;/productOrderInfo&gt;
-            &lt;productOrderInfo&gt;
-              &lt;assignedProductId&gt;102241283&lt;/assignedProductId&gt;
-              &lt;orderActionType&gt;PR&lt;/orderActionType&gt;
-              &lt;productName&gt;EVCAccessMain&lt;/productName&gt;
-              &lt;productOrderItemId&gt;202132030_1&lt;/productOrderItemId&gt;
-              &lt;productOrderItemStatus&gt;DE&lt;/productOrderItemStatus&gt;
-              &lt;productServiceId&gt;AS/VLXP/101896/ATI_AS/KRFN/102511/SW&lt;/productServiceId&gt;
-              &lt;productVersion&gt;0&lt;/productVersion&gt;
-            &lt;/productOrderInfo&gt;
-            &lt;productOrderInfo&gt;
-              &lt;assignedProductId&gt;102241289&lt;/assignedProductId&gt;
-              &lt;orderActionType&gt;PR&lt;/orderActionType&gt;
-              &lt;productName&gt;EVCMain&lt;/productName&gt;
-              &lt;productOrderItemId&gt;202132032_1&lt;/productOrderItemId&gt;
-              &lt;productOrderItemStatus&gt;DE&lt;/productOrderItemStatus&gt;
-              &lt;productServiceId&gt;AS/VLXP/101896/ATI&lt;/productServiceId&gt;
-              &lt;productVersion&gt;0&lt;/productVersion&gt;
-            &lt;/productOrderInfo&gt;
-          &lt;/productOffers&gt;
-        &lt;/productOrderResponse&gt;
-      &lt;/CreateProductOrderForNewProductResponse&gt;
-    &lt;/ns2:createProductOrderForNewProductResponse&gt;
-  &lt;/S:Body&gt;
-&lt;/S:Envelope&gt;
-</msg>
-<msg timestamp="20211210 14:34:17.034" level="INFO">${response} = &lt;Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x275fd325840&gt;</msg>
-<status status="PASS" starttime="20211210 14:34:13.183" endtime="20211210 14:34:17.035"/>
-</kw>
-<kw name="Save XML To File" library="SoapLibrary">
-<arg>${response}</arg>
-<arg>xmls//response</arg>
-<arg>CNOD_PTP_NS_Response</arg>
-<doc>Save the webservice response as a XML file.</doc>
-<status status="PASS" starttime="20211210 14:34:17.036" endtime="20211210 14:34:17.036"/>
-</kw>
-<kw name="Copy File" library="OperatingSystem">
-<arg>xmls//response//CNOD_PTP_NS_Response.xml</arg>
-<arg>xmls//response//CNOD_PTP_NS_Response.txt</arg>
-<doc>Copies the source file into the destination.</doc>
-<msg timestamp="20211210 14:34:17.047" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_PTP_NS_Response.xml"&gt;C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_PTP_NS_Response.xml&lt;/a&gt;' to '&lt;a href="file://C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_PTP_NS_Response.txt"&gt;C:\Users\shivamte\PycharmProjects\robotframeworkautomation\xmls\response\CNOD_PTP_NS_Response.txt&lt;/a&gt;'.</msg>
-<status status="PASS" starttime="20211210 14:34:17.037" endtime="20211210 14:34:17.047"/>
-</kw>
-<status status="PASS" starttime="20211210 14:34:11.438" endtime="20211210 14:34:17.047"/>
+<status status="FAIL" start="2024-07-02T02:38:33.868044" elapsed="0.582593">ConnectionError: HTTPConnectionPool(host='zltv9973.vci.att.com', port=41400): Max retries exceeded with url: /ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001588EC96D30&gt;: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))</status>
 </test>
 <doc>To create GAMMA Orders.</doc>
-<status status="PASS" starttime="20211210 14:34:05.222" endtime="20211210 14:34:17.049"/>
+<status status="FAIL" start="2024-07-02T02:38:33.373240" elapsed="1.084703"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="IST GAMMA PTP">IST GAMMA PTP</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="IST GAMMA UNI">IST GAMMA UNI</stat>
 </suite>
 </statistics>
 <errors>

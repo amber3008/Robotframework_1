@@ -22,7 +22,7 @@ ${stateRegion2}   Y
 *** Test Cases ***
 Push UNI CNOD Request
     updateXmlUni    ${isPmtu}   ${isAdx}    ${stateRegion1}     ${stateRegion2}
-    # Log to console  ${stateRegion1}
+     Log to console  ${stateRegion1}
     Create Soap Client    http://zltv9973.vci.att.com:41400/ORDERING_PORTFOLIO/CustomerOrderEstablishment?wsdl
     ${response}    Call SOAP Method With XML    xmls//requests//CNOD_UNI_NS.xml
     Save XML To File    ${response}    xmls//response    CNOD_UNI_NS_Response

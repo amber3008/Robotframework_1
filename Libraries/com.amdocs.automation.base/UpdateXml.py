@@ -5,6 +5,8 @@ import xml.etree.ElementTree as ET
 
 ran=""
 a=[]
+tns=[]
+lr=[]
 uni=[]
 
 
@@ -17,14 +19,14 @@ class UpdateXml:
         type="MIS"
         type2="AVPN"
 
-       # if orderType is type:
-       #     id="1-ME"
-       # elif orderType is type2:
-       #     id="1-AVPN"
-       # else:
-       #     id="1-CPTM"
+        if orderType == "MIS":
+            id="1-ME"
+        elif orderType == "IPFLEXMIS":
+            id="1-DVB"
+        else:
+            id="1-AVPN"
 
-        id="1-ME"
+        #id="1-TNRSCPAB"
         sorid = id+ran
 
         # read from a file
@@ -32,8 +34,12 @@ class UpdateXml:
         with open('xmls/requests/notifyRequest.txt', "rt") as read_file:
             contents = read_file.read()
             contents = contents.replace('{sorId}',sorid)
-            contents = contents.replace('{proId}', strProj)
-            contents = contents.replace('{orderType}', orderType)
+            contents = contents.replace('{proId}', "DVB9767898")
+            if orderType == "MIS":
+                contents = contents.replace('{orderType}', "MIS")
+            if orderType == "IPFLEXMIS":
+                contents = contents.replace('{orderType}', "MIS")
+                contents = contents.replace('<!--<nxen:serviceName>BVOIP</nxen:serviceName>-->','<nxen:serviceName>BVOIP</nxen:serviceName>')
             contents = contents.replace('{aType}', type2)
 
         # write to a file
@@ -57,7 +63,8 @@ class UpdateXml:
         with open('xmls/requests/decomposeSalesOrderRequest.txt', "rt") as read_file:
             contents = read_file.read()
             contents = contents.replace('{$sorId$}',b[0])
-            contents = contents.replace('{$projId$}',b[1])
+            #contents = contents.replace('{$projId$}',b[1])
+            contents = contents.replace('{$projId$}', "DVB9767898")
 
 
         # write to a file
@@ -161,28 +168,28 @@ class UpdateXml:
 
     def updateXmlPTP(self):
 
-        with open('C:/Users/shivamte/PycharmProjects/robotframeworkautomation/xmls/requests/CNOD_PTP_NS.txt', "rt") as read_file:
+        with open('xmls/requests/CNOD_PTP_NS.txt', "rt") as read_file:
             contents =read_file.read()
             contents =contents.replace("<!--{$cvlan1$}-->",str(random.randint(100,999)))
             contents =contents.replace("<!--{$cvlan2$}-->",str(random.randint(100,999)))
 
             # write to a file
-        with open('C:/Users/shivamte/PycharmProjects/robotframeworkautomation/xmls/requests/CNOD_PTP_NS.xml',"w") as write_file:
+        with open('xmls/requests/CNOD_PTP_NS.xml',"w") as write_file:
             write_file.write(contents)
 
 
-        tree=ET.parse(open("C:/Users/shivamte/PycharmProjects/robotframeworkautomation/xmls/response/CNOD_UNI_NS_Response.xml","r"))
+        tree=ET.parse(open("xmls/response/CNOD_UNI_NS_Response.xml","r"))
         root=tree.getroot()
         sr1=root[1][0][0][0][2][1][5].text
         sr2=root[1][0][0][0][3][1][5].text
         print(sr1+"   "+sr2)
-        with open('C:/Users/shivamte/PycharmProjects/robotframeworkautomation/xmls/requests/CNOD_PTP_NS.txt', "rt") as read_file:
+        with open('xmls/requests/CNOD_PTP_NS.txt', "rt") as read_file:
             contents =read_file.read()
             contents =contents.replace("<!--{$sr1$}-->",sr1)
             contents =contents.replace("<!--{$sr2$}-->",sr2)
 
             # write to a file
-        with open('C:/Users/shivamte/PycharmProjects/robotframeworkautomation/xmls/requests/CNOD_PTP_NS.xml',"w") as write_file:
+        with open('xmls/requests/CNOD_PTP_NS.xml',"w") as write_file:
             write_file.write(contents)
 
         logger.info("output: ")
@@ -190,6 +197,47 @@ class UpdateXml:
         uni.append(sr2)
         return uni
 
+    def updateTn(self):
+        tn = str(randrange(10000000000))
+        reqId = str(randrange(100000))
+        with open('xmls/requests/SaveManualTn.txt', "rt") as read_file:
+            contents =read_file.read()
+            contents =contents.replace('{tn}',tn)
+            contents =contents.replace('{reqId}',reqId)
+
+            # write to a file
+        with open('xmls/requests/SaveManualTn.json',"w") as write_file:
+            write_file.write(contents)
+
+        tns.append(tn)
+        tns.append(reqId)
+
+
+    def getTns(self):
+        return tns
+
+    def updateSaveUDR(self,tn,reqId,orderId):
+        self.tn = tn;
+        self.reqId = reqId;
+        self.orderId = orderId;
+        splitat = 3
+        left, right = tn[:splitat], tn[splitat:]
+        print(left + "   " + right)
+        lr.append(left)
+        lr.append(right)
+        with open('xmls/requests/SaveUDR.txt', "rt") as read_file:
+            contents =read_file.read()
+            contents =contents.replace('{tn}',tn)
+            contents =contents.replace('{reqId}',reqId)
+            contents = contents.replace('{orderId}', orderId)
+            contents = contents.replace('{nxx}', right)
+
+            # write to a file
+        with open('xmls/requests/SaveUDR.json',"w") as write_file:
+            write_file.write(contents)
+
+
+        return lr
 
 #obj=UpdateXml()
 

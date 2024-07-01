@@ -1,0 +1,43 @@
+<S:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <env:Header/>
+  <S:Body>
+    <ns2:createProductOrderForNewProductResponse xmlns:ns2="http://CustomerOrderEstablishment.ocxGenericServices.services.amdocs.com">
+      <CreateProductOrderForNewProductResponse>
+        <productOrderResponse>
+          <productOrderId>202133290A</productOrderId>
+          <productOrderStatus>SB</productOrderStatus>
+          <productOffers>
+            <productOfferName>EVC - PTP</productOfferName>
+            <productOrderInfo>
+              <assignedProductId>102244045</assignedProductId>
+              <orderActionType>PR</orderActionType>
+              <productName>EVCAccessMain</productName>
+              <productOrderItemId>202133291_1</productOrderItemId>
+              <productOrderItemStatus>DE</productOrderItemStatus>
+              <productServiceId>AS/VLXP/100239/SW_AS/KRFN/100975/SW</productServiceId>
+              <productVersion>0</productVersion>
+            </productOrderInfo>
+            <productOrderInfo>
+              <assignedProductId>102244051</assignedProductId>
+              <orderActionType>PR</orderActionType>
+              <productName>EVCAccessMain</productName>
+              <productOrderItemId>202133293_1</productOrderItemId>
+              <productOrderItemStatus>DE</productOrderItemStatus>
+              <productServiceId>AS/VLXP/100239/SW_AS/KRFN/105204/SW</productServiceId>
+              <productVersion>0</productVersion>
+            </productOrderInfo>
+            <productOrderInfo>
+              <assignedProductId>102244057</assignedProductId>
+              <orderActionType>PR</orderActionType>
+              <productName>EVCMain</productName>
+              <productOrderItemId>202133295_1</productOrderItemId>
+              <productOrderItemStatus>DE</productOrderItemStatus>
+              <productServiceId>AS/VLXP/100239/SW</productServiceId>
+              <productVersion>0</productVersion>
+            </productOrderInfo>
+          </productOffers>
+        </productOrderResponse>
+      </CreateProductOrderForNewProductResponse>
+    </ns2:createProductOrderForNewProductResponse>
+  </S:Body>
+</S:Envelope>
